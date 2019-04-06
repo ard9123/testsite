@@ -5,7 +5,7 @@
         <title>SVHS Testing site</title>
         <link rel="stylesheet" href="sitestyles.css">
         <h1>SVHS Testing Room Number Site</h1>
-        <h2>by Andy Doyle c/o 2019</h2>
+        <h2>by Andy Doyle </h2>
     </head>
     <body>
         
@@ -13,6 +13,20 @@
             6-Digit ID Number:<input type = "text" name = "idnumber">
             
         </p1>
+        
+        <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+        apiKey: "AIzaSyDepY_dci8vBFW_qUaY2p8Tzedi5VtAmdc",
+        authDomain: "testingroomsite.firebaseapp.com",
+        databaseURL: "https://testingroomsite.firebaseio.com",
+        projectId: "testingroomsite",
+        storageBucket: "testingroomsite.appspot.com",
+        messagingSenderId: "921009489350"
+        };
+        firebase.initializeApp(config);
+        </script>
         <script src="sitescript.js"></script> 
     </body>
 
