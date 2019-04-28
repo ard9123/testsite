@@ -2,7 +2,7 @@
 var currentUrl;
 
 //statusUp = friendly message and alerts if no test selected
-document.getElementById("statusUp").innerHTML=("Good Luck on your Test");
+document.getElementById("statusUp").innerHTML=("Go Rangers");
 
 //roomNumber and another error alert location
 var output = document.getElementById("roomNumber").innerHTML;
