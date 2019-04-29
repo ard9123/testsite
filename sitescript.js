@@ -56,11 +56,11 @@ function startUp(){
                
                 document.getElementById("statusUp").innerHTML=  "Algebra selected";
             }
-            else if(document.getElementById("English 2").checked == true){
-                //english 2
+            else if(document.getElementById("Algebra 2").checked == true){
+                //Algebra 2
                 currentUrl = "https://firebasestorage.googleapis.com/v0/b/testingroomsite.appspot.com/o/eng2.csv?alt=media&token=12b90768-b44b-4e28-a84f-2fa9e1765f5e";
                 
-                document.getElementById("statusUp").innerHTML=  "English 2 selected";
+                document.getElementById("statusUp").innerHTML=  "Algebra 2 selected";
             }
            else{
                //good luck message changed if no test selected
