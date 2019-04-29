@@ -93,12 +93,22 @@ function startUp(){
     
                 //reader.result contains the contents of blob as a typed array
                 console.log(reader.result);
-                
+                let readresult = reader.result;
+                let replaced = readresult;
+                if (reader.result.includes("NOT")){
+                    console.log(reader.result.includes("NOT"))
+                     replaced = readresult.replace(/NOT/g, "NOT!");
+                    console.log(replaced)
+                }
+               
                 // with regex,  csv split into groups of 11: 6 digit IDs and a comma and 4 digit room numbers
-                var parse = reader.result.match(/.{1,11}/g);
+                var parse = replaced.match(/.{1,11}/g);
+                //mod modifies the the parser depenidng on if there is a vlue in the parse array that does not match format
+                //this occurs when csv files are uploaded in windows and tend to have a "" at the end after the last meanningful value
+                
                 console.log(parse);
-        
-                for(var i = 0; i < parse.length;i++){
+                
+                for(var i = 0; i < (parse.length );i++){
                     //each series of 11 is split into room and ID by comma
                     tempArr = parse[i].split(",");
                     
@@ -115,15 +125,21 @@ function startUp(){
                 console.log("Room Numbers: " + rooms);
        
                 for(i = 0; i<parse.length;i++){
-                    if(document.getElementById("idnumber").value==IDs[i]){
-                    console.log("sucessfully retrieved room at row" + (i+1));
+                    if(document.getElementById("idnumber").value===IDs[i]){
+                        console.log("AAAAAAAAAAA")
+                        if(rooms[i].includes("NOT!")){
+                            document.getElementById("roomNumber").innerHTML = "You are not testing today. Report to previously assigned room, normal schedule, or ask teacher/admin for instruction";
+                            return
+                        }
+                        else{
+                            console.log("sucessfully retrieved room at row" + (i+1));
                         
-                    //if the user entered ID matches one on the file, the room number is posted
-                    document.getElementById("roomNumber").innerHTML = rooms[i];
+                            //if the user entered ID matches one on the file, the room number is posted
+                            document.getElementById("roomNumber").innerHTML = rooms[i];
                     
-                    //program stops after room number found    
-                    return;
-                
+                            //program stops after room number found    
+                            return;
+                        }
                     }
                     
                     else if(document.getElementById("idnumber").value.length != 6){
